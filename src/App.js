@@ -1,24 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import styled from 'styled-components';
+
+import HorizontalStackedBarChart from './components/HorizontalStackedBarChart';
+
+const Body = styled.div`
+  height: auto;
+  display: grid;
+  grid-template-areas:
+    'header header header'
+    'left   main   right'
+    'bottom bottom bottom';
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-rows: 1fr 6fr 1fr;
+`
+
+const Head = styled.header`
+  grid-area: header;
+  margin: 12px;
+`
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Body>
+        <Head>This is an example of a horizontally stacked bar chart.</Head>
+        <HorizontalStackedBarChart grid-area='main'/>
+    </Body>
   );
 }
 
